@@ -1,0 +1,17 @@
+*{
+  box-sizing:border-box;
+}
+
+.images{
+  border:1px solid red;
+  display:flex;
+  align-items:flex-start;
+  transition:transform 0.5s;
+  transform: translateX(0);
+}
+.window{
+  
+  border:1px solid green;
+  width:400px;
+  overflow: hidden;
+}
