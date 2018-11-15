@@ -1,21 +1,40 @@
-$(p1).on('click',function(){
-  $(images).css({
-    transform: 'translateX(0)'
+var allButtons = $('#buttons > span')
+for(let i =0;i<allButtons.length;i++){
+  $(allButtons[i]).on('click',function(x){
+    var index = $(x.currentTarget).index()
+    var px = index * -400
+    $('#images').css({
+      'transform':'translate(' + px +'px)'
+    })
+    n=index
+    activeButton(allButtons.eq(n))
   })
+}
+var n =0
+var timerId=setTimer()
+palySlide(n)
+
+function activeButton($button){
+  $button.addClass('red')
+.siblings('.red').removeClass('red')
+}
+
+function palySlide(index){
+  allButtons.eq(index).trigger('click')
+}
+
+function setTimer(){
+  return setInterval(()=>{
+    n++
+    n%=allButtons.length
+    palySlide(n)
+    },1000)
+}
+
+$('.window').on('mouseenter',function(){
+  window.clearInterval(timerId)
 })
 
-$(p2).on('click',function(){
-  $(images).css({
-    transform: 'translateX(-400px)'
-  })
-})
-$(p3).on('click',function(){
-  $(images).css({
-    transform: 'translateX(-800px)'
-  })
-})
-$(p4).on('click',function(){
-  $(images).css({
-    transform: 'translateX(-1200px)'
-  })
+$('.window').on('mouseleave',function(){
+  timerId=setTimer()
 })

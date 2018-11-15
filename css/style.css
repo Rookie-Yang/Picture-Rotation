@@ -2,8 +2,11 @@
   box-sizing:border-box;
 }
 
+.red{
+  color:red;
+}
+
 .images{
-  border:1px solid red;
   display:flex;
   align-items:flex-start;
   transition:transform 0.5s;
@@ -11,7 +14,7 @@
 }
 .window{
   
-  border:1px solid green;
+ 
   width:400px;
   overflow: hidden;
 }
